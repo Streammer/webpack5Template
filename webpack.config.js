@@ -19,10 +19,6 @@ module.exports = {
                 exclude: /node_modules/,
             },
             {
-                test: /\.pug$/,
-                loader: 'pug-loader',
-            },
-            {
                 test: /\.(scss|css)$/,
                 use: [
                     MiniCssExtractPlugin.loader,
@@ -50,8 +46,7 @@ module.exports = {
     },
     plugins: [
         new HtmlWebpackPlugin({
-            // template: path.join(__dirname, 'src', 'template.html'),
-            template: path.join(__dirname, 'src', 'template.pug'),
+            template: path.join(__dirname, 'src', 'template.html'),
             filename: 'index.html',
         }),
         new FileManagerPlugin({
