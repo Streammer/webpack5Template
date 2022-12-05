@@ -6,6 +6,10 @@ const ImageMinimizerPlugin = require('image-minimizer-webpack-plugin');
 const { VueLoaderPlugin } = require('vue-loader')
 
 module.exports = {
+    resolve: {
+        // Add `.ts` as a resolvable extension.
+        extensions: ['.ts', '.js']
+    },
     entry: path.join(__dirname, 'src', 'index.js'),
     output: {
         path: path.join(__dirname, 'dist'),
@@ -17,7 +21,10 @@ module.exports = {
             {
                 test: /\.js$/,
                 use: 'babel-loader',
-                exclude: /node_modules/,
+                exclude: file => (
+                    /node_modules/.test(file) &&
+                    !/\.vue\.js/.test(file)
+                )
             },
             {
                 test: /\.pug$/,
@@ -51,7 +58,7 @@ module.exports = {
             {
                 test: /\.vue$/,
                 loader: 'vue-loader'
-              },
+            },
         ],
     },
     plugins: [

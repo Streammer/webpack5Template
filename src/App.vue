@@ -1,12 +1,21 @@
 <template>
  <h1>Created from vue</h1>
+ <div class="main">
+    <span>test scss</span>
+ </div>
 </template>
 
-<script setup>
+<script lang="ts">
 </script>
 
-<style lang="css">
+<style lang="scss">
 h1 {
     color:green;
+}
+
+.main {
+    span {
+        color: violet;
+    }
 }
 </style>
