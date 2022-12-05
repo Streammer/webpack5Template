@@ -3,6 +3,7 @@ const path = require('path');
 const FileManagerPlugin = require('filemanager-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const ImageMinimizerPlugin = require('image-minimizer-webpack-plugin');
+const { VueLoaderPlugin } = require('vue-loader')
 
 module.exports = {
     entry: path.join(__dirname, 'src', 'index.js'),
@@ -25,7 +26,8 @@ module.exports = {
             {
                 test: /\.(scss|css)$/,
                 use: [
-                    MiniCssExtractPlugin.loader,
+                    // MiniCssExtractPlugin.loader,
+                    'vue-style-loader',
                     'css-loader',
                     'postcss-loader',
                     'sass-loader'
@@ -46,12 +48,16 @@ module.exports = {
                 test: /\.(woff2?|eot|ttf|otf)$/i,
                 type: 'asset/resource',
             },
+            {
+                test: /\.vue$/,
+                loader: 'vue-loader'
+              },
         ],
     },
     plugins: [
         new HtmlWebpackPlugin({
-            // template: path.join(__dirname, 'src', 'template.html'),
-            template: path.join(__dirname, 'src', 'template.pug'),
+            template: path.join(__dirname, 'src', 'template.html'),
+            // template: path.join(__dirname, 'src', 'template.pug'),
             filename: 'index.html',
         }),
         new FileManagerPlugin({
@@ -72,6 +78,7 @@ module.exports = {
         new MiniCssExtractPlugin({
             filename: '[name].[contenthash].css',
         }),
+        new VueLoaderPlugin(),
     ],
     devServer: {
         watchFiles: path.join(__dirname, 'src'),
