@@ -1,11 +1,11 @@
-<template>
- <h1>Created from vue</h1>
- <div class="main">
-    <span>test scss</span>
- </div>
+<template lang="pug">
+h1 Created from vue
+    div.main
+        span test scss
 </template>
 
 <script lang="ts">
+
 </script>
 
 <style lang="scss">
