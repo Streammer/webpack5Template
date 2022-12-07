@@ -10,7 +10,7 @@ h1 Created from vue
 
 <style lang="scss">
 h1 {
-    color:green;
+    color: green;
 }
 
 .main {
