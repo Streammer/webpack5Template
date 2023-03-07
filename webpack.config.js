@@ -50,8 +50,8 @@ module.exports = {
     },
     plugins: [
         new HtmlWebpackPlugin({
-            // template: path.join(__dirname, 'src', 'template.html'),
-            template: path.join(__dirname, 'src', 'template.pug'),
+            template: path.join(__dirname, 'src', 'template.html'),
+            // template: path.join(__dirname, 'src', 'template.pug'),
             filename: 'index.html',
         }),
         new FileManagerPlugin({
